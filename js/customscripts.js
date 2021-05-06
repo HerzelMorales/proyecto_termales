@@ -1,3 +1,4 @@
+/*
 $(document).ready(function() {
   $('#home_t').DataTable({
     order: [[ 0, 'desc']],
@@ -1010,3 +1011,4 @@ periodoOptions2.forEach(option =>
     new Option(option.text, option.value, option.selected)
   )
 );
+*/
