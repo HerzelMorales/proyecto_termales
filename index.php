@@ -1,10 +1,12 @@
 <?php include "helpers/header.php"; 
 
+    $date = new DateTime();
+    
 ?>
 
  <body style="font-family: Times New Roman, Times, serif;">
     <div id="divForGssLogo">
-        <p style="text-align:center;"><img src="images/gsslogo.png" id="genesisLogo" width="300" height="200"></p>
+        <p style="text-align:center;"><img src="images/gsslogo.png" id="genesisLogo" width="250" height="200"></p>
     </div>
 
     <h4 class="center" id="smallDescription">Certificación del Deparamento de Educación</h4>
@@ -16,7 +18,8 @@
                 <label for="fecha" class="col-sm-auto col-form-label" id="dateLabel">Fecha:</label>
             </div>
             <div id="dateInputDiv" class="col-auto">
-                <input type="date" class="form-control" id="fecha" required>
+                <input type="date" class="form-control" id="fecha" name="fecha"
+                 value="<?php echo $date->format('m-d-Y');  ?>"readonly>
             </div> 
         </div>
 
@@ -28,7 +31,7 @@
                 <label for="hora" class="col-sm-auto col-form-label" id="timeLabel">Hora:</label>
             </div>
             <div id="timeInputDiv" class="col-auto">
-                <input type="time" class="form-control" id="hora" required>
+                <input type="time" class="form-control" id="hora" name="hora" readonly>
             </div> 
         </div>
 
@@ -84,9 +87,9 @@
                     <div class="form-floating">
                         <select class="form-select" id="municipalitySelect" name="municipalitySelect" required>
                             <option value="" selected>Seleccione</option>
-                            <option value="Ejemplo 1">Ejemplo 1</option>
-                            <option value="Ejemplo 2">Ejemplo 2</option>
-                            <option value="Ejemplo 3">Ejemplo 3</option>
+                            <option value="Placeholder 1">Placeholder 1</option>
+                            <option value="Placeholder 2">Placeholder 2</option>
+                            <option value="Placeholder 3">Placeholder 3</option>
                         </select>
                         <label for="municipalitySelect0">Municipio</label>
                     </div>
@@ -114,6 +117,7 @@
         </div>
 
         <br>
+        <br>
 
         <div id="tableDiv" class="table-responsive">
             <div class="center">
@@ -124,62 +128,120 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Número Propiedad de Equipo</th>
                                 <th scope="col">Terminal Serial Number</th>
+                                <th scope="col">Imagen del producto</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td><input type="text" class=""></td>
-                                <td></td>
+                                <td><input type="text" class="form-control" required></td>
+                                <td><input type="text" class="form-control" required></td>
+                                <td><input type="file" class="form-control" id="formFile1" name="imgOfUnit1" onchange="readURL(input)" required>
+                                    <img class="imgPreview" id="img1" src="#" alt="imgUnit1"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile2" name="imgOfUnit2">
+                                    <img class="imgPreview" id="img2" src="#" alt="imgUnit2"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile3" name="imgOfUnit3">
+                                    <img class="imgPreview" id="img3" src="#" alt="imgUnit3"/>    
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile4" name="imgOfUnit4">
+                                    <img class="imgPreview" id="img4" src="#" alt="imgUnit4"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">5</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile5" name="imgOfUnit5">
+                                    <img class="imgPreview" id="img5" src="#" alt="imgUnit5"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">6</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile6" name="imgOfUnit6">
+                                    <img class="imgPreview" id="img6" src="#" alt="imgUnit6"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">7</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile7" name="imgOfUnit7">
+                                    <img class="imgPreview" id="img7" src="#" alt="imgUnit7"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">8</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile8" name="imgOfUnit8">
+                                    <img class="imgPreview" id="img8" src="#" alt="imgUnit8"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">9</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile9" name="imgOfUnit9">
+                                    <img class="imgPreview" id="img9" src="#" alt="imgUnit9"/>
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">10</th>
-                                <td></td>
-                                <td></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control"></td>
+                                <td><input type="file" class="form-control" id="formFile10" name="imgOfUnit10">
+                                    <img class="imgPreview" id="img10" src="#" alt="imgUnit10"/>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <br>
+
+        <div id="signatureDiv1" class="row mb-auto">
+            <div class="col-sm-auto"></div>
+            <div id="signatureInputDiv1" class="col-auto">
+                <input type="text" class="form-control" id="signature1" required>
+            </div> 
+            <div id="signatureLabelDiv1" class="row mb-auto">
+                <div class="col-sm-auto"></div>
+                <label for="signature1" class="col-sm-auto col-form-label" id="signatureLabel1">Firma de Representante Escolar</label>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <div id="signatureDiv2" class="row mb-auto">
+            <div class="col-sm-auto"></div>
+            <div id="signatureInputDiv2" class="col-auto">
+                <input type="text" class="form-control" id="signature2" required>
+            </div> 
+            <div id="signatureLabelDiv2" class="row mb-auto">
+                <div class="col-sm-auto"></div>
+                <label for="signature2" class="col-sm-auto col-form-label" id="signatureLabel2">Firma de Técnico</label>
             </div>
         </div>
 
