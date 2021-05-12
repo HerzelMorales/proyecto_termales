@@ -1,7 +1,9 @@
-<?php include "helpers/header.php"; 
+<?php include "helpers/header.php";
+
+    require "dbconn.php";
+    date_default_timezone_set("America/Puerto_Rico");
 
     $date = new DateTime();
-    
 ?>
 
  <body style="font-family: Times New Roman, Times, serif;">
@@ -11,15 +13,14 @@
 
     <h4 class="center" id="smallDescription">Certificación del Deparamento de Educación</h4>
 
-    <form>
+    <form class="needs-validation" novalidate>
         <div id="dateDiv" class="row mb-auto">
             <div class="col-sm-auto"></div>
             <div id="dateLabelDiv" class="col-auto">
                 <label for="fecha" class="col-sm-auto col-form-label" id="dateLabel">Fecha:</label>
             </div>
-            <div id="dateInputDiv" class="col-auto">
-                <input type="date" class="form-control" id="fecha" name="fecha"
-                 value="<?php echo $date->format('m-d-Y');  ?>"readonly>
+            <div id="dateInputDiv" class="col-2">
+                <input type="text" class="form-control" id="fecha" name="fecha" value="<?php echo $date->format('d/m/Y');?>" readonly>
             </div> 
         </div>
 
@@ -30,8 +31,8 @@
             <div id="timeLabelDiv" class="col-auto">
                 <label for="hora" class="col-sm-auto col-form-label" id="timeLabel">Hora:</label>
             </div>
-            <div id="timeInputDiv" class="col-auto">
-                <input type="time" class="form-control" id="hora" name="hora" readonly>
+            <div id="timeInputDiv" class="col-1">
+                <input type="text" class="form-control" id="hora" name="hora" value="<?php echo $date->format("h:i a");?>" readonly>
             </div> 
         </div>
 
@@ -235,13 +236,21 @@
         <br>
 
         <div id="signatureDiv2" class="row mb-auto">
-            <div class="col-sm-auto"></div>
             <div id="signatureInputDiv2" class="col-auto">
                 <input type="text" class="form-control" id="signature2" required>
             </div> 
             <div id="signatureLabelDiv2" class="row mb-auto">
                 <div class="col-sm-auto"></div>
                 <label for="signature2" class="col-sm-auto col-form-label" id="signatureLabel2">Firma de Técnico</label>
+            </div>
+        </div>
+
+        <br>
+        
+        <div class="row mb-auto">
+            <div class="col-sm-auto"></div>
+            <div class="col-auto">
+                <button class="btn btn-primary" type="submit">Submit</button>
             </div>
         </div>
 
