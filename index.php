@@ -1,19 +1,34 @@
 <?php include "helpers/header.php";
 
-    require "dbconn.php";
+    // require "dbconn.php";
+   
     date_default_timezone_set("America/Puerto_Rico");
 
     $date = new DateTime();
+    //buscar en la base de datos y llenar los campos 
+    include './database/dbconn.php';
+    $code = $_GET['code'];
+    $sql = "SELECT * FROM numpropiedad WHERE code = '$code' ";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $mun = $row['municipio'];
+            $code = $row['code'];
+            $nombre = $row['school'];
+            $semana = $row['semana'];
+        } 
+    }
 ?>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
  <body style="font-family: Times New Roman, Times, serif;">
-    <div id="divForGssLogo">
-        <p style="text-align:center;"><img src="images/gsslogo.png" id="genesisLogo" width="250" height="200"></p>
+    <div id="divForGssLogo" >
+        <p style="text-align:center;"><img src="../public/images/Genesis-Logo.png" id="genesisLogo" width="250" height="200"></p>
     </div>
 
     <h4 class="center" id="smallDescription">Certificación del Deparamento de Educación</h4>
 
-    <form class="needs-validation" novalidate>
+    <form method="post" action="submissionConfirmPage.php">
         <div id="dateDiv" class="row mb-auto">
             <div class="col-sm-auto"></div>
             <div id="dateLabelDiv" class="col-auto">
@@ -71,14 +86,14 @@
                     <label for="school" class="col-sm-auto col-form-label" id="labelForSchool">de la escuela</label>
                 </div>
                 <div id="schoolNameDiv" class="col-auto">
-                    <input type="text" class="form-control" id="schoolName" name="schoolName" value="" readonly>
+                    <input type="text" class="form-control" id="schoolName" name="schoolName"  value="<?php echo $nombre; ?>"readonly>
                 </div>
 
                 <div id="schoolCodeLabelDiv" class="col-auto">
-                    <label for="schoolCode" class="col-sm-auto col-form-label" id="labelForSchoolCode">código</label>
+                    <label for="schoolCode" class="col-sm-auto col-form-label" id="labelForSchoolCode" onchange="schoolInfoSync()">código</label>
                 </div>
                 <div id="schoolCodeInputDiv" class="col-1">
-                    <input type="number" class="form-control" id="schoolCode" name="schoolCode" onchange="schoolInfoSync()" required>
+                    <input type="number" class="form-control" id="schoolCode" name="schoolCode" value="<?php echo $code; ?>" readonly>
                 </div>
 
                 <div id="municipalityLabelDiv" class="col-auto">
@@ -86,7 +101,7 @@
                 </div>
                 <div id="municipalityDiv" class="col-auto">
                     <div class="col-auto">
-                        <input type="text" class="form-control" id="municipality" name="municipality" value="" readonly>
+                        <input type="text" class="form-control" id="municipality" name="municipality" value="<?php echo $mun;?>" readonly>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -129,7 +144,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td><input type="text" class="form-control" required readonly></td>
+                                <td><input type="text" class="form-control" required></td>
                                 <td><input type="text" class="form-control" required></td>
                                 <td><input type="file" class="form-control" id="formFile1" name="imgOfUnit1" onchange="readURL(input)" required>
                                     <img class="imgPreview" id="img1" src="#" alt="imgUnit1"/>
@@ -137,7 +152,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile2" name="imgOfUnit2">
                                     <img class="imgPreview" id="img2" src="#" alt="imgUnit2"/>
@@ -145,7 +160,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile3" name="imgOfUnit3">
                                     <img class="imgPreview" id="img3" src="#" alt="imgUnit3"/>    
@@ -153,7 +168,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile4" name="imgOfUnit4">
                                     <img class="imgPreview" id="img4" src="#" alt="imgUnit4"/>
@@ -161,7 +176,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">5</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile5" name="imgOfUnit5">
                                     <img class="imgPreview" id="img5" src="#" alt="imgUnit5"/>
@@ -169,7 +184,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">6</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile6" name="imgOfUnit6">
                                     <img class="imgPreview" id="img6" src="#" alt="imgUnit6"/>
@@ -177,7 +192,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">7</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile7" name="imgOfUnit7">
                                     <img class="imgPreview" id="img7" src="#" alt="imgUnit7"/>
@@ -185,7 +200,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">8</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile8" name="imgOfUnit8">
                                     <img class="imgPreview" id="img8" src="#" alt="imgUnit8"/>
@@ -193,7 +208,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">9</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile9" name="imgOfUnit9">
                                     <img class="imgPreview" id="img9" src="#" alt="imgUnit9"/>
@@ -201,7 +216,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">10</th>
-                                <td><input type="text" class="form-control" readonly></td>
+                                <td><input type="text" class="form-control"></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile10" name="imgOfUnit10">
                                     <img class="imgPreview" id="img10" src="#" alt="imgUnit10"/>

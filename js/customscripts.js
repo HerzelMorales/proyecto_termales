@@ -26,10 +26,6 @@ function schoolInfoSync(){
                 event.stopPropagation()
             }
             form.classList.add("was-validated")
-            //Submit button redirects to confirm page
-            document.getElementById("formSubmitButton").onclick = function () {
-                location.href = "submissionConfirmPage.php";
-            };
         }, false)
     })
 })()
