@@ -129,7 +129,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row">1</th>
-                                <td><input type="text" class="form-control" required></td>
+                                <td><input type="text" class="form-control" required readonly></td>
                                 <td><input type="text" class="form-control" required></td>
                                 <td><input type="file" class="form-control" id="formFile1" name="imgOfUnit1" onchange="readURL(input)" required>
                                     <img class="imgPreview" id="img1" src="#" alt="imgUnit1"/>
@@ -137,7 +137,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">2</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile2" name="imgOfUnit2">
                                     <img class="imgPreview" id="img2" src="#" alt="imgUnit2"/>
@@ -145,7 +145,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">3</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile3" name="imgOfUnit3">
                                     <img class="imgPreview" id="img3" src="#" alt="imgUnit3"/>    
@@ -153,7 +153,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">4</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile4" name="imgOfUnit4">
                                     <img class="imgPreview" id="img4" src="#" alt="imgUnit4"/>
@@ -161,7 +161,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">5</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile5" name="imgOfUnit5">
                                     <img class="imgPreview" id="img5" src="#" alt="imgUnit5"/>
@@ -169,7 +169,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">6</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile6" name="imgOfUnit6">
                                     <img class="imgPreview" id="img6" src="#" alt="imgUnit6"/>
@@ -177,7 +177,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">7</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile7" name="imgOfUnit7">
                                     <img class="imgPreview" id="img7" src="#" alt="imgUnit7"/>
@@ -185,7 +185,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">8</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile8" name="imgOfUnit8">
                                     <img class="imgPreview" id="img8" src="#" alt="imgUnit8"/>
@@ -193,7 +193,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">9</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile9" name="imgOfUnit9">
                                     <img class="imgPreview" id="img9" src="#" alt="imgUnit9"/>
@@ -201,7 +201,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">10</th>
-                                <td><input type="text" class="form-control"></td>
+                                <td><input type="text" class="form-control" readonly></td>
                                 <td><input type="text" class="form-control"></td>
                                 <td><input type="file" class="form-control" id="formFile10" name="imgOfUnit10">
                                     <img class="imgPreview" id="img10" src="#" alt="imgUnit10"/>
