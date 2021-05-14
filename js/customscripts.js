@@ -1,11 +1,12 @@
 function schoolInfoSync(){
-    var schoolName = document.getElementById("schoolName")
-    var schoolCode = document.getElementById("schoolCode")
-    var municipality = document.getElementById("municipality")
+    var schoolCode = document.getElementById("schoolCode").value;
 
-    if(schoolCode.value==1){
-        municipality.value = "Carolina"
-        
+    if(schoolCode==1){
+        document.getElementById("schoolName").value = "Jaime C."
+        document.getElementById("municipality").value = "Yabucoa"
+    } else{
+        document.getElementById("schoolName").value = ""
+        document.getElementById("municipality").value = ""
     }
 }
 

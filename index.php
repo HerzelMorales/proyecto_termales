@@ -71,14 +71,14 @@
                     <label for="school" class="col-sm-auto col-form-label" id="labelForSchool">de la escuela</label>
                 </div>
                 <div id="schoolNameDiv" class="col-auto">
-                    <input type="text" class="form-control" id="schoolName" name="schoolName" readonly>
+                    <input type="text" class="form-control" id="schoolName" name="schoolName" value="" readonly>
                 </div>
 
                 <div id="schoolCodeLabelDiv" class="col-auto">
-                    <label for="schoolCode" class="col-sm-auto col-form-label" id="labelForSchoolCode" onchange="schoolInfoSync()">código</label>
+                    <label for="schoolCode" class="col-sm-auto col-form-label" id="labelForSchoolCode">código</label>
                 </div>
                 <div id="schoolCodeInputDiv" class="col-1">
-                    <input type="number" class="form-control" id="schoolCode" name="schoolCode" required>
+                    <input type="number" class="form-control" id="schoolCode" name="schoolCode" onchange="schoolInfoSync()" required>
                 </div>
 
                 <div id="municipalityLabelDiv" class="col-auto">
@@ -86,7 +86,7 @@
                 </div>
                 <div id="municipalityDiv" class="col-auto">
                     <div class="col-auto">
-                        <input type="text" class="form-control" id="municipality" name="municipality" readonly>
+                        <input type="text" class="form-control" id="municipality" name="municipality" value="" readonly>
                     </div>
                 </div>
                 <div class="col-auto">
