@@ -1,6 +1,6 @@
  <footer id="footerthang" role="contentinfo">
       <section class="container-fluid text-center">
-        <p>
+        <p class="center">
           <small style="display: block;">
             "© 20<?php echo date('y'); ?>" <a href>Genesis Security Services, Inc.</a>
           </small>
@@ -12,6 +12,6 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/customscripts.js"></script>
-
+    <script src="./js/signature.js"></script>
   </body>
 </html>

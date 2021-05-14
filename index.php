@@ -32,7 +32,7 @@
                 <label for="hora" class="col-sm-auto col-form-label" id="timeLabel">Hora:</label>
             </div>
             <div id="timeInputDiv" class="col-1">
-                <input type="text" class="form-control" id="hora" name="hora" value="<?php echo $date->format("h:i a");?>" readonly>
+                <input type="text" class="form-control" id="hora" name="hora" value="<?php echo $date->format("h:ia");?>" readonly>
             </div> 
         </div>
 
@@ -67,32 +67,26 @@
 
             <div class="row mb-auto">
                 <div class="col-sm-2"></div>
-                <div id="schoolLabelDiv" class="col-auto">
+                <div id="schoolNameLabelDiv" class="col-auto">
                     <label for="school" class="col-sm-auto col-form-label" id="labelForSchool">de la escuela</label>
                 </div>
-                <div id="schoolInputDiv" class="col-auto">
-                    <input type="text" class="form-control" id="school" name="school" required>
+                <div id="schoolNameDiv" class="col-auto">
+                    <input type="text" class="form-control" id="schoolName" name="schoolName" readonly>
                 </div>
 
                 <div id="schoolCodeLabelDiv" class="col-auto">
-                    <label for="schoolCode" class="col-sm-auto col-form-label" id="labelForSchoolCode">código</label>
+                    <label for="schoolCode" class="col-sm-auto col-form-label" id="labelForSchoolCode" onchange="schoolInfoSync()">código</label>
                 </div>
                 <div id="schoolCodeInputDiv" class="col-1">
-                    <input type="text" class="form-control" id="schoolCode" name="schoolCode" required>
+                    <input type="number" class="form-control" id="schoolCode" name="schoolCode" required>
                 </div>
 
                 <div id="municipalityLabelDiv" class="col-auto">
                     <label for="municipalitySelect" class="col-sm-auto col-form-label" id="labelForMunicipality">del municipio</label>
                 </div>
-                <div id="municipalityInputDiv" class="col-auto">
-                    <div class="form-floating">
-                        <select class="form-select" id="municipalitySelect" name="municipalitySelect" required>
-                            <option value="" selected>Seleccione</option>
-                            <option value="Placeholder 1">Placeholder 1</option>
-                            <option value="Placeholder 2">Placeholder 2</option>
-                            <option value="Placeholder 3">Placeholder 3</option>
-                        </select>
-                        <label for="municipalitySelect0">Municipio</label>
+                <div id="municipalityDiv" class="col-auto">
+                    <div class="col-auto">
+                        <input type="text" class="form-control" id="municipality" name="municipality" readonly>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -221,14 +215,58 @@
 
         <br>
 
+        <style>
+
+            body, canvas, div, form, input {
+                margin: 0;
+                padding: 0;
+            }
+            #wrapper2 {
+                width: 100%;
+                padding: 0px;
+                /*position: relative; center: 25%;*/
+            }
+            canvas {
+                position: relative;
+                margin: 1px;
+                margin-center: 0px;
+                border: 0px solid #3a87ad;
+                /*width: 600px;*/
+            }
+            h1, p {
+                padding-center: 0px;
+                width: 50%;
+                /*margin: 0 auto;*/
+            }
+            /* #controlPanel {
+                margin: 2px;
+            }*/
+            #saveSignature {
+                display: none;
+            }
+            
+        </style>
+
+        <script src="./js/signature.js"></script>
+
         <div id="signatureDiv1" class="row mb-auto">
             <div class="col-sm-auto"></div>
-            <div id="signatureInputDiv1" class="col-auto">
-                <input type="text" class="form-control" id="signature1" required>
-            </div> 
-            <div id="signatureLabelDiv1" class="row mb-auto">
-                <div class="col-sm-auto"></div>
-                <label for="signature1" class="col-sm-auto col-form-label" id="signatureLabel1">Firma de Representante Escolar</label>
+            <div id="signatureInputDiv1">
+                <div id="canvas" class="col-auto">
+                    Canvas is not supported.
+                </div>
+                <script>
+                    zkSignature.capture();
+                </script>
+                <div id="signatureLabelDiv1" class="row mb-auto">
+                    <div class="col-sm-auto"></div>
+                    <label for="canvas" class="col-sm-auto col-form-label" id="signatureLabel1">Firma de Representante Escolar</label>
+                </div>
+                <div class="clearButtonDiv1">
+                    <button type="button" id="myBtn" onclick="zkSignature.clear()" class="btn btn-primary">
+                        Borrar
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -236,23 +274,36 @@
         <br>
 
         <div id="signatureDiv2" class="row mb-auto">
-            <div id="signatureInputDiv2" class="col-auto">
-                <input type="text" class="form-control" id="signature2" required>
-            </div> 
-            <div id="signatureLabelDiv2" class="row mb-auto">
-                <div class="col-sm-auto"></div>
-                <label for="signature2" class="col-sm-auto col-form-label" id="signatureLabel2">Firma de Técnico</label>
+            <div class="col-sm-auto"></div>
+            <div id="signatureInputDiv2">
+                <div id="canvas" class="col-auto">
+                    Canvas is not supported.
+                </div>
+                <script>
+                    zkSignature.capture();
+                </script>
+                <div id="signatureLabelDiv2" class="row mb-auto">
+                    <div class="col-sm-auto"></div>
+                    <label for="canvas" class="col-sm-auto col-form-label" id="signatureLabel2">Firma de Técnico</label>
+                </div>
+                <div class="clearButtonDiv2">
+                    <button type="button" id="myBtn" onclick="zkSignature.clear()" class="btn btn-primary" disabled>
+                        Borrar
+                    </button>
+                </div>
             </div>
         </div>
 
         <br>
         
         <div class="row mb-auto">
-            <div class="col-sm-auto"></div>
+            <div class="col-sm-5"></div>
             <div class="col-auto">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button id="formSubmitButton" class="btn btn-primary" type="submit">Someter</button>
             </div>
         </div>
+
+        <br>
 
     </form>
 

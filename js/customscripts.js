@@ -1,7 +1,17 @@
-//Functions for images tied to each unit or product in the tableForUnitSN
+function schoolInfoSync(){
+    var schoolName = document.getElementById("schoolName")
+    var schoolCode = document.getElementById("schoolCode")
+    var municipality = document.getElementById("municipality")
 
+    if(schoolCode.value==1){
+        municipality.value = "Carolina"
+        
+    }
+}
+
+//Submit button checking validation for each field 
 (function () {
-    'use strict'
+    "use strict"
 
     // Fetch all the forms we want to apply custom Bootstrap validation styles to
     var forms = document.querySelectorAll('.needs-validation')
@@ -9,21 +19,28 @@
     // Loop over them and prevent submission
     Array.prototype.slice.call(forms)
     .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
+        form.addEventListener("submit", function (event) {
             if (!form.checkValidity()) {
                 event.preventDefault()
                 event.stopPropagation()
             }
-            form.classList.add('was-validated')
+            form.classList.add("was-validated")
+            //Submit button redirects to confirm page
+            document.getElementById("formSubmitButton").onclick = function () {
+                location.href = "submissionConfirmPage.php";
+            };
         }, false)
     })
 })()
+
+//Functions for images tied to each unit or product in the tableForUnitSN
+
 function readURL1(input) {
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img1').attr('src', e.target.result);
+            $("#img1").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -39,7 +56,7 @@ function readURL2(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img2').attr('src', e.target.result);
+            $("#img2").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -55,7 +72,7 @@ function readURL3(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img3').attr('src', e.target.result);
+            $("#img3").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -71,7 +88,7 @@ function readURL4(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img4').attr('src', e.target.result);
+            $("#img4").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -87,7 +104,7 @@ function readURL5(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img5').attr('src', e.target.result);
+            $("#img5").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -103,7 +120,7 @@ function readURL6(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img6').attr('src', e.target.result);
+            $("#img6").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -119,7 +136,7 @@ function readURL7(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img7').attr('src', e.target.result);
+            $("#img7").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -135,7 +152,7 @@ function readURL8(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img8').attr('src', e.target.result);
+            $("#img8").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -151,7 +168,7 @@ function readURL9(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img9').attr('src', e.target.result);
+            $("#img9").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
@@ -167,7 +184,7 @@ function readURL10(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            $('#img10').attr('src', e.target.result);
+            $("#img10").attr("src", e.target.result);
         }
 
         reader.readAsDataURL(input.files[0]);
